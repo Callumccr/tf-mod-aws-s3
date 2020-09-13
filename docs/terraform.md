@@ -45,6 +45,7 @@
 | sse\_algorithm | (Optional) - The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms` | `string` | `"AES256"` | no |
 | tags | (Optional) - Additional tags | `map(string)` | `{}` | no |
 | trusted\_role\_arns | ARNs of AWS entities who can access the bucket | `list(string)` | `[]` | no |
+| upload\_bucket\_objects | (Optional) - Set to `true` to upload items into the bucket with the caller identity | `bool` | `false` | no |
 | versioning | (Optional) - Map containing versioning configuration. | `map(string)` | `{}` | no |
 | website | (Optional) - Map containing static web-site hosting or redirect configuration. | `map(string)` | `{}` | no |
 

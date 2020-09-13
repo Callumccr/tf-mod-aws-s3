@@ -236,7 +236,7 @@ resource "aws_s3_bucket_policy" "bucket_access" {
 }
 
 resource "aws_s3_bucket_object" "bucket_uploads" {
-  for_each      = var.enabled && var.allow_upload_bucket_objects == true ? fileset(var.object_path, "*") : []
+  for_each      = var.enabled && var.upload_bucket_objects == true ? fileset(var.object_path, "*") : []
   bucket        = aws_s3_bucket.default.0.id
   key           = each.value
   force_destroy = var.force_destroy

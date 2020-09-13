@@ -192,6 +192,12 @@ variable "allow_bucket_access" {
   description = "(Optional) - Set to `true` to create a bucket policy for a specified AWS role"
 }
 
+variable "upload_bucket_objects" {
+  type        = bool
+  default     = false
+  description = "(Optional) - Set to `true` to upload items into the bucket with the caller identity"
+}
+
 variable "object_path" {
   type        = string
   default     = ""
