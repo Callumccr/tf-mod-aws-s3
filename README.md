@@ -119,8 +119,8 @@ TO-DO
 | region | (Optional) - If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee. | `string` | n/a | yes |
 | request\_payer | (Optional) - Specifies who should bear the cost of Amazon S3 data transfer. Can be either BucketOwner or Requester. By default, the owner of the S3 bucket would incur the costs of any data transfer. See Requester Pays Buckets developer guide for more information. | `string` | n/a | yes |
 | acl | (Optional) - The canned ACL to apply. Defaults to 'private'. | `string` | `"private"` | no |
+| allow\_bucket\_access | (Optional) - Set to `true` to create a bucket policy for a specified AWS role | `bool` | `false` | no |
 | allow\_encrypted\_uploads\_only | (Optional) - Set to `true` to prevent uploads of unencrypted objects to S3 bucket | `bool` | `false` | no |
-| allow\_upload\_bucket\_objects | (Optional) - Set to `true` to initiate uploads of objects to S3 bucket | `bool` | `false` | no |
 | attach\_elb\_log\_delivery\_policy | (Optional) - Controls if S3 bucket should have ELB log delivery policy attached | `bool` | `false` | no |
 | attach\_policy | (Optional) - Controls if S3 bucket should have bucket policy attached (set to `true` to use value of `policy` as bucket policy) | `bool` | `false` | no |
 | attributes | (Optional) - Additional attributes (e.g. `1`) | `list(string)` | `[]` | no |
@@ -148,6 +148,7 @@ TO-DO
 | server\_side\_encryption\_configuration | (Optional) - Map containing server-side encryption configuration. | `map` | `{}` | no |
 | sse\_algorithm | (Optional) - The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms` | `string` | `"AES256"` | no |
 | tags | (Optional) - Additional tags | `map(string)` | `{}` | no |
+| trusted\_role\_arns | ARNs of AWS entities who can access the bucket | `list(string)` | `[]` | no |
 | versioning | (Optional) - Map containing versioning configuration. | `map(string)` | `{}` | no |
 | website | (Optional) - Map containing static web-site hosting or redirect configuration. | `map(string)` | `{}` | no |
 

@@ -30,19 +30,19 @@ data "aws_iam_policy_document" "elb_log_delivery" {
 }
 
 
-data "aws_iam_policy_document" "bucket_uploads" {
-  count = var.enabled && var.allow_upload_bucket_objects == true ? 1 : 0
+data "aws_iam_policy_document" "bucket_access" {
+  count = var.enabled && var.allow_bucket_access == true ? 1 : 0
   statement {
-    sid       = "AllowAll"
     effect    = "Allow"
     actions   = ["*"]
     resources = ["arn:aws:s3:::${element(aws_s3_bucket.default.*.id, count.index)}/*"]
 
     principals {
-      identifiers = ["${var.aws_assume_role_arn}"]
+      identifiers = concat(var.trusted_role_arns, ["${var.aws_assume_role_arn}"])
       type        = "AWS"
     }
   }
+
 }
 
 

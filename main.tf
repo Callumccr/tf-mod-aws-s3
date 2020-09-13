@@ -229,10 +229,10 @@ resource "aws_s3_bucket_policy" "encrypted_uploads" {
   policy = var.allow_encrypted_uploads_only ? data.aws_iam_policy_document.encrypted_uploads[0].json : var.policy
 }
 
-resource "aws_s3_bucket_policy" "bucket_uploads" {
-  count  = var.enabled && var.allow_upload_bucket_objects == true ? 1 : 0
+resource "aws_s3_bucket_policy" "bucket_access" {
+  count  = var.enabled && var.allow_bucket_access == true ? 1 : 0
   bucket = element(aws_s3_bucket.default.*.id, count.index)
-  policy = var.allow_upload_bucket_objects ? data.aws_iam_policy_document.bucket_uploads[0].json : var.policy
+  policy = var.allow_bucket_access ? data.aws_iam_policy_document.bucket_access[0].json : var.policy
 }
 
 resource "aws_s3_bucket_object" "bucket_uploads" {

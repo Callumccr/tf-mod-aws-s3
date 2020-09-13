@@ -186,16 +186,22 @@ variable "allow_encrypted_uploads_only" {
   description = "(Optional) - Set to `true` to prevent uploads of unencrypted objects to S3 bucket"
 }
 
-variable "allow_upload_bucket_objects" {
+variable "allow_bucket_access" {
   type        = bool
   default     = false
-  description = "(Optional) - Set to `true` to initiate uploads of objects to S3 bucket"
+  description = "(Optional) - Set to `true` to create a bucket policy for a specified AWS role"
 }
 
 variable "object_path" {
   type        = string
   default     = ""
   description = "(Optional) - The relative path of the s3 objects to upload into the S3 bucket"
+}
+
+variable "trusted_role_arns" {
+  description = "ARNs of AWS entities who can access the bucket"
+  type        = list(string)
+  default     = []
 }
 
 # -----------------------------------------------------------------------------
