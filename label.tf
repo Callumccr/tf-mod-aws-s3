@@ -3,7 +3,7 @@ module "label" {
   namespace          = var.namespace
   environment        = var.environment
   name               = var.name
-  attributes         = concat(var.attributes, list(var.bucket), ["bucket"])
+  attributes         = concat(var.attributes, list(var.bucket_name), ["bucket"])
   delimiter          = "-"
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
   label_order        = ["environment", "namespace", "name", "attributes"]
