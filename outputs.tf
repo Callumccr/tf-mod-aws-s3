@@ -4,7 +4,7 @@
 
 output "bucket_id" {
   description = "The name of the bucket."
-  value       = element(concat(aws_s3_bucket_policy.encrypted_uploads.*.id, aws_s3_bucket_policy.bucket_uploads.*.id, aws_s3_bucket_policy.elb_log_delivery.*.id, aws_s3_bucket.default.*.id, list("")), 0)
+  value       = element(concat(aws_s3_bucket.default.*.id, list("")), 0)
 }
 
 output "bucket_arn" {
