@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "default" {
   count = var.enabled ? 1 : 0
 
-  bucket              = module.label.id
+  bucket              = var.bucket_name != "" ? join("-", [var.environment], [var.bucket_name]) : module.label.id
   bucket_prefix       = var.bucket_prefix
   acl                 = var.acl
   tags                = module.label.tags

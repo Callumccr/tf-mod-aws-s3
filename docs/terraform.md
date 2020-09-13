@@ -9,7 +9,7 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | acceleration\_status | (Optional) - Sets the accelerate configuration of an existing bucket. Can be Enabled or Suspended. | `string` | n/a | yes |
-| bucket | (Optional, Forces new resource) - The name of the bucket. If omitted, Terraform will assign a random, unique name. | `string` | n/a | yes |
+| bucket\_name | (Optional, Forces new resource) - The name of the bucket. If omitted, Terraform will assign a random, unique name. | `string` | n/a | yes |
 | bucket\_prefix | (Optional, Forces new resource) - Creates a unique bucket name beginning with the specified prefix. Conflicts with bucket. | `string` | n/a | yes |
 | policy | (Optional) - A valid bucket policy JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a terraform plan. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. | `string` | n/a | yes |
 | region | (Optional) - If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee. | `string` | n/a | yes |
